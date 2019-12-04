@@ -1,6 +1,6 @@
 CPP = g++
 LIB = libasync.a
-OBJS = server.o log.o
+OBJS = server.o log.o socket.o
 
 $(LIB): $(OBJS)
 	$(AR) rv $@ $(OBJS)
