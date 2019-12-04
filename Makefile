@@ -1,1 +1,14 @@
-DIRS = lib build                                                                                                        .PHONY: all clean                                                                                                                                                                                                                               all:                                                                                                                            @for d in $(DIRS); \                                                                                                    do \                                                                                                                            $(MAKE) -C $$d; \                                                                                               done                                                                                                                                                                                                                                    clean:                                                                                                                          @for d in $(DIRS); \                                                                                                    do \                                                                                                                            $(MAKE) -C $$d clean; \                                                                                         done
+DIRS = lib build
+.PHONY: all clean
+
+all:
+	@for d in $(DIRS); \
+	do \
+		$(MAKE) -C $$d; \
+	done
+
+clean:
+	@for d in $(DIRS); \
+	do \
+		$(MAKE) -C $$d clean; \
+	done

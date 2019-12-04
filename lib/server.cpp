@@ -102,6 +102,7 @@ void Server::client_handler(int fd){
 	int len, wlen;
     Message *msg = nullptr;
 
+    memset(buf, 0, MSG_SZ);
     len = read(fd, buf, sizeof(buf));
 	if (len == 0) {
         /* Connection disconnected */
@@ -131,7 +132,6 @@ void Server::client_handler(int fd){
         m_msg_queue.push(msg);
         m_msg_mtx.unlock();
     }
-
     m_msg_cv.notify_one();
     return;
 
